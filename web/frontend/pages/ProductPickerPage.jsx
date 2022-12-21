@@ -1,11 +1,12 @@
 import {Button, Card, DataTable, EmptyState, Frame, Heading, Layout, Page, Toast} from "@shopify/polaris";
-import {ResourcePicker, TitleBar} from "@shopify/app-bridge-react";
+import {ResourcePicker} from "@shopify/app-bridge-react";
 import {useCallback, useMemo, useState} from "react";
 
 export default function ProductPickerPage() {
     const [pickerOpen, setPickerOpen] = useState(false);
     const [products, setProducts] = useState([]);
     const [showToast, setShowToast] = useState(false);
+    const [doHaveStudio, setDoHaveStudio] = useState(true);
 
     const productTableDisplayData = useMemo(() => products.map((p) => [
         // p.id,
@@ -15,10 +16,10 @@ export default function ProductPickerPage() {
 
     const redirectFunc = () => {
         window.location.replace('https://studio.stylescan.com/');
-    }
+    };
 
     const submitHandler = useCallback(() => {
-        console.log('Submitting');
+        console.log('Submitting', products);
         setShowToast(true);
         redirectFunc();
     }, []);
@@ -72,8 +73,12 @@ export default function ProductPickerPage() {
                             <Button
                                 primary
                                 onClick={submitHandler}
-                                disabled={!products.length}
+                                disabled={!products.length || !doHaveStudio}
                             >Submit</Button>
+                            {!doHaveStudio &&
+                                <div>
+                                    <span style={{color: "red"}}>You do not have StyScan Studio. For more info mange your acc!</span>
+                                </div>}
                         </Card>
                     </Layout.Section>
                 </Layout>

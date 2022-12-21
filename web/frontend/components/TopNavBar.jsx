@@ -12,12 +12,15 @@ export default function TopNavBar() {
     const navigate= useNavigate();
 
     const logo = {
-        width: 124, topBarSource: Logo, url: 'https://stylescan.com', accessibilityLabel: 'StyleScan',
+        width: 124,
+        topBarSource: Logo,
+        // url: 'https://stylescan.com',
+        accessibilityLabel: 'StyleScan',
     };
 
     const secondaryMenuMarkup = (<TopBar.Menu
         activatorContent={
-            <span>
+            <span style={{fontSize: '20px', marginRight: '17px', marginLeft: '17px'}}>
           Navigation
         </span>
         }
@@ -40,7 +43,6 @@ export default function TopNavBar() {
     />);
 
     return (<div style={{height: '61px'}}>
-        <Frame topBar={topBarMarkup} logo={logo}/>
+        <Frame topBar={topBarMarkup} logo={logo} />
     </div>);
-    // return <Frame topBar={topBarMarkup} logo={logo} style={{height: '250px'}}/>
 }

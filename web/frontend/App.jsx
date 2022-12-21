@@ -10,11 +10,9 @@ export default function App() {
     const redirectFunc = () => {
         window.location.replace('https://studio.stylescan.com/');
     }
-    console.log('PAGES:  ', pages)
 
     useEffect(() => {
         const isRedirectRes = fetch('https://stylescan.com/account/debug.json').then((r) => {
-            console.log('APP UseEffect', r)
             setIsRedirect(r.ok)
         });
     }, []);
