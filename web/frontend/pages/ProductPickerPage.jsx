@@ -1,4 +1,4 @@
-import {Button, Card, DataTable, EmptyState, Heading, Layout, Page, Toast, Frame} from "@shopify/polaris";
+import {Button, Card, DataTable, EmptyState, Frame, Heading, Layout, Page, Toast} from "@shopify/polaris";
 import {ResourcePicker, TitleBar} from "@shopify/app-bridge-react";
 import {useCallback, useMemo, useState} from "react";
 
@@ -13,15 +13,15 @@ export default function ProductPickerPage() {
         <img src={p.images[0].originalSrc} alt="" style={{width: '29px'}}/>
     ]), [products]);
 
-    const redirectFunc = () => {window.location.replace('https://studio.stylescan.com/');}
+    const redirectFunc = () => {
+        window.location.replace('https://studio.stylescan.com/');
+    }
 
     const submitHandler = useCallback(() => {
         console.log('Submitting');
         setShowToast(true);
         redirectFunc();
     }, []);
-
-
 
     const toastMarkup = showToast
         ? <Toast
@@ -34,16 +34,17 @@ export default function ProductPickerPage() {
     return (
         <Frame>
             <Page>
-                <TitleBar
-                    title="Select Products"
-                    primaryAction={{
-                        content: "Select Products",
-                        onAction: () => {
-                            console.log("Select", pickerOpen);
-                            setPickerOpen(true);
-                        },
-                    }}
-                />
+                {/*<TitleBar*/}
+                {/*    title="Select Products"*/}
+                {/*    primaryAction={{*/}
+                {/*        content: "Select Products",*/}
+                {/*        onAction: () => {*/}
+                {/*            console.log("Select", pickerOpen);*/}
+                {/*            setPickerOpen(true);*/}
+                {/*        },*/}
+                {/*    }}*/}
+                {/*/>*/}
+                <Button primary onClick={() => setPickerOpen(true)}>Select Products</Button>
                 <Layout>
                     <ResourcePicker
                         resourceType='Product'

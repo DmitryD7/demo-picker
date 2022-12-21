@@ -1,14 +1,12 @@
 import {Layout, Page,} from "@shopify/polaris";
-import {TitleBar} from "@shopify/app-bridge-react";
-import ProductPickerPage from "./ProductPickerPage";
+import WelcomePage from "./WelcomePage.jsx";
 
 export default function HomePage() {
     return (
         <Page narrowWidth>
-            <TitleBar title="Product Picker" primaryAction={null}/>
             <Layout>
                 <Layout.Section>
-                    <ProductPickerPage/>
+                    <WelcomePage/>
                 </Layout.Section>
             </Layout>
         </Page>
