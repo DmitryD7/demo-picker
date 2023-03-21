@@ -1,5 +1,5 @@
 {
-  "name": "demo-picker",
+  "name": "stylescan-tool",
   "version": "1.0.0",
   "main": "web/index.js",
   "license": "UNLICENSED",
@@ -16,10 +16,7 @@
     "@shopify/app": "3.25.0",
     "@shopify/cli": "3.25.0",
     "@shopify/polaris": "^10.16.1",
-    "axios": "^1.2.1",
-    "formik": "^2.2.9",
-    "react-redux": "^8.0.5",
-    "redux-thunk": "^2.4.2"
+    "axios": "^1.2.1"
   },
   "author": "Dmitry"
 }

@@ -1,6 +1,6 @@
 {
   "name": "stylescan-app-test",
-  "private": true,
+  "private": false,
   "license": "UNLICENSED",
   "scripts": {
     "debug": "node --inspect-brk index.js",

@@ -3,7 +3,7 @@ import WelcomePage from "./WelcomePage.jsx";
 
 export default function HomePage() {
     return (
-        <Page narrowWidth>
+        <Page>
             <Layout>
                 <Layout.Section>
                     <WelcomePage/>

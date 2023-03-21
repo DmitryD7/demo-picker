@@ -1,6 +1,6 @@
 {
   "name": "shopify-frontend-template-react",
-  "private": true,
+  "private": false,
   "license": "UNLICENSED",
   "scripts": {
     "build": "vite build",
@@ -16,6 +16,7 @@
     "@shopify/app-bridge-react": "^3.1.0",
     "@shopify/app-bridge-utils": "^3.1.0",
     "@shopify/polaris": "^9.11.0",
+    "@shopify/polaris-icons": "^6.11.3",
     "@vitejs/plugin-react": "1.2.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -29,7 +29,8 @@ export default function TopNavBar() {
         onClose={toggleIsSecondaryMenuOpen}
         actions={[{
             items: [
-                {content: 'Manage StyleScan', url: 'https://studio.stylescan.com/'},
+                {content: 'Signup to StyleScan', url: 'https://stylescan.com/subscribe/apparel/'},
+                {content: 'Login to StyleScan', url: 'https://studio.stylescan.com/'},
                 {content: 'Pick products', onAction() {
                     navigate('/productPickerPage')
                     }}
@@ -38,7 +39,6 @@ export default function TopNavBar() {
     />);
 
     const topBarMarkup = (<TopBar
-
         secondaryMenu={secondaryMenuMarkup}
     />);
 
