@@ -46,7 +46,7 @@ export default defineConfig({
   root: dirname(fileURLToPath(import.meta.url)),
   plugins: [react()],
   define: {
-    "process.env.SHOPIFY_API_KEY": JSON.stringify(process.env.SHOPIFY_API_KEY),
+    "process.env.SHOPIFY_API_KEY": JSON.stringify('4af15c08c23be8d59970089606d1476e'),
   },
   resolve: {
     preserveSymlinks: true,

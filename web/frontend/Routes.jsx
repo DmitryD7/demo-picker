@@ -1,5 +1,6 @@
 import {Route, Routes as ReactRouterRoutes} from "react-router-dom";
 import NotFound from "./pages/NotFound.jsx";
+import ExitIframe from "./pages/ExitIframe.jsx";
 
 /**
  * File-based routing.
@@ -27,6 +28,7 @@ export default function Routes({pages}) {
         <ReactRouterRoutes>
             {routeComponents}
             <Route path="*" element={<NotFound/>}/>
+            {/*<Route path="/exit-iframe" element={<ExitIframe/>} />*/}
         </ReactRouterRoutes>
     );
 }

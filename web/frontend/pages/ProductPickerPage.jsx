@@ -1,4 +1,4 @@
-import {Button, Card, DataTable, EmptyState, Frame, Heading, Layout, Page, Toast} from "@shopify/polaris";
+import {Button, Card, DataTable, EmptyState, Heading, Layout, Page, Toast} from "@shopify/polaris";
 import {ResourcePicker} from "@shopify/app-bridge-react";
 import {useMemo, useState} from "react";
 
@@ -6,6 +6,7 @@ export default function ProductPickerPage() {
     const [pickerOpen, setPickerOpen] = useState(false);
     const [products, setProducts] = useState([]);
     const [showToast, setShowToast] = useState(false);
+    // const navigate = useNavigate();
 
     const productTableDisplayData = useMemo(() => products.map((p) => [
         // p.id,
@@ -23,9 +24,12 @@ export default function ProductPickerPage() {
         for (const img of images) {
             params.append('import', img);
         }
-        const fullUrl = ` https://studio.stylescan.com/?${params.toString()}`;
-        // window.location.replace(`https://studio.stylescan.com/?${params.toString()}`);
-        window.open(fullUrl, '_blank');
+        const fullUrl = `https://studio.stylescan.com/?${params.toString()}`;
+        // const redirectUri = encodeURIComponent(fullUrl);
+        // console.log('redirectUri: ', redirectUri)
+        // window.location.href = `/exit-iframe?redirectUri=${fullUrl}`;
+        // navigate(`https://studio.stylescan.com/?${params.toString()}`, {target: "new"});
+        // window.open(fullUrl, '_blank');
     };
 
     const submitHandler = () => {

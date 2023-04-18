@@ -6,6 +6,11 @@ import ProductPickerPage from "./ProductPickerPage";
 
 export default function Index() {
     const [activeMainSection, setActiveMainSection] = useState('Instructions');
+    const [urlForOutside, setUrlForOutside] = useState('');
+    const [isOutside, setIsOutside] = useState(false);
+
+    console.log('activeMainSection', activeMainSection);
+    console.log('urlForOutside', urlForOutside);
 
     const sideNav = () => {
         return (<Navigation
@@ -20,14 +25,27 @@ export default function Index() {
                         url: 'none',
                         label: 'Instructions',
                         icon: QuestionMarkInverseMajor,
-                        onClick: () => setActiveMainSection('Instructions'),
+                        onClick: () => {
+                            setActiveMainSection('Instructions');
+                            setIsOutside(false);
+                        },
                     },
                     {
                         url: '/productPickerPage',
                         exactMatch: true,
                         label: 'Select products',
                         icon: BehaviorMajor,
-                        onClick: () => setActiveMainSection('Product selector'),
+                        onClick: () => {
+                            setActiveMainSection('ProductSelector');
+                            setIsOutside(false);
+                        },
+                    },
+                    {
+                        // url: '/outsidePage',
+                        // exactMatch: true,
+                        label: 'Studio',
+                        icon: BehaviorMajor,
+                        onClick: () => setActiveMainSection('OutsidePage'),
                     }
                 ]}
                 separator
@@ -36,16 +54,28 @@ export default function Index() {
                 title={'ACCOUNT'}
                 items={[
                     {
-                        url: 'https://studio.stylescan.com/',
-                        excludePaths: ['#'],
+                        // url: 'https://studio.stylescan.com/',
+                        // url: '/outsidePage',
+                        // excludePaths: ['#'],
                         label: 'Log in',
                         icon: EnterMajor,
+                        onClick: () => {
+                            setActiveMainSection('OutsidePage');
+                            setUrlForOutside('https://studio.stylescan.com/');
+                            setIsOutside(true);
+                        },
                     },
                     {
-                        url: 'https://stylescan.com/subscribe/apparel/',
-                        excludePaths: ['#'],
+                        // url: 'https://account.stylescan.com/signup',
+                        // url: '/outsidePage',
+                        // excludePaths: ['#'],
                         label: 'Sign up',
                         icon: CustomerPlusMajor,
+                        onClick: () => {
+                            setActiveMainSection('OutsidePage');
+                            setUrlForOutside('https://account.stylescan.com/signup');
+                            setIsOutside(true);
+                        },
                     }
                     ,]}
             />
@@ -73,10 +103,16 @@ export default function Index() {
                 </div>
                 <Layout.Section>
                     <div style={{width: '91%', backgroundColor: 'inherit'}}>
-                        <Card title={activeMainSection} sectioned={true}>
-                            {activeMainSection === 'Product selector' &&<ProductPickerPage/>}
-                            {activeMainSection === 'Instructions' && infoComponent()}
-                        </Card>
+                        {!isOutside && <Card title={activeMainSection} sectioned={true}>
+                                {activeMainSection === 'ProductSelector' && <ProductPickerPage/>}
+                                {activeMainSection === 'Instructions' && infoComponent()}
+                            </Card>
+                        }
+                        {!!urlForOutside && activeMainSection === 'OutsidePage'
+                            && <div style={{width: '100%', height: '100vh'}}>
+                                <iframe src={urlForOutside} frameborder="0" width="100%" height='100%'></iframe>
+                            </div>
+                        }
                     </div>
                 </Layout.Section>
             </Layout>

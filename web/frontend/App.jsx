@@ -1,7 +1,6 @@
 import {BrowserRouter, Route} from "react-router-dom";
 import {AppBridgeProvider, PolarisProvider, QueryProvider,} from "./components";
 import Routes from "./Routes.jsx";
-import TopNavBar from "./components/TopNavBar.jsx";
 
 export default function App() {
     const pages = import.meta.globEager("./pages/**/!(*.test.[jt]sx)*.([jt]sx)");
